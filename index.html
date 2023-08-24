@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      :root {
+        --primary: #9fcaff;
+        --container: #00497d;
+        --container-hover: #075288;
+        --goalsubheader: #2d6b9f;
+        --track: #3b4858;
+      }
+      body {
+        background: #1a1c1e;
+        text-align: center;
+      }
+      .RadialProgress {
+        --hue: 220;
+        --holesize: 65%;
+        --track-bg: transparent;
+
+        block-size: 185px;
+        inline-size: 185px;
+        min-inline-size: 100px;
+        min-block-size: 100px;
+        place-items: center;
+        position: relative;
+        font-weight: 700;
+        color: var(--primary);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 50%;
+        margin-left: -92px;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          border-radius: 50%;
+          z-index: -1;
+          background: conic-gradient(
+            var(--track),
+            var(--track),
+            var(--track) var(--progress, 0%),
+            var(--track-bg) var(--progress, 0%) 100%
+          );
+
+          mask-image: radial-gradient(
+            transparent var(--holesize),
+            black calc(var(--holesize) + 0.5px)
+          );
+        }
+      }
+      button {
+        margin: 26px;
+        font-family: "Inter";
+        font-size: 14px;
+        border-radius: 100px;
+        background: var(--primary);
+        border: none;
+        color: var(--container);
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 29px;
+        padding-right: 29px;
+        cursor: pointer;
+        transition: padding 0.2s ease;
+      }
+      button:active {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 23px;
+        padding-right: 23px;
+      }
+
+      #didyaknow {
+        width: 351px;
+        border-radius: 12px;
+        background: var(--container);
+        padding: 22px;
+        display: flexbox;
+        position: absolute;
+        left: 50%;
+        margin-left: -185px;
+        color: var(--primary);
+        font-family: "Inter";
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        text-align: left;
+        cursor: default;
+        transition: background 0.2s ease;
+      }
+      #didyaknow:hover {
+        background: var(--container-hover);
+      }
+      didyaknowheader {
+        margin-bottom: 22px;
+      }
+      didyaknowcontent {
+        display: inline-block;
+        font-size: 14px;
+        width: 242px;
+        flex-shrink: 0;
+        margin-top: 22px;
+      }
+      div#goal {
+        display: flexbox;
+        position: absolute;
+        left: 50%;
+        margin-left: -185px;
+        width: 351px;
+        height: 100px;
+        border-radius: 12px;
+        background: var(--container);
+        padding: 22px;
+        margin-top: 170px;
+        transition: background 0.2s ease;
+      }
+      div#goal:hover {
+        background: var(--container-hover);
+      }
+      span#goal1 {
+        display: block;
+        text-align: left;
+      }
+      span#goal2 {
+        display: block;
+        position: relative;
+        margin-top: -24%;
+        text-align: right;
+      }
+      goalheader {
+        color: var(--primary);
+        font-family: Inter;
+        font-size: 20px;
+      }
+      goalheader#2 {
+        text-align: right;
+      }
+      goalsubheader {
+        display: inline-block;
+        width: 46px;
+        height: 18px;
+        flex-shrink: 0;
+        color: var(--goalsubheader);
+        font-family: Inter;
+        font-size: 16px;
+      }
+      goal {
+        color: var(--primary);
+        font-family: Inter;
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 94.4%; /* 60.416px */
+        letter-spacing: -7.04px;
+        margin-right: 10px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="RadialProgress"
+      role="progressbar"
+      aria-valuenow="25"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    ></div>
+    <button onclick="drinkcup()">Drink a cup</button>
+    <div id="didyaknow">
+      <didyaknowheader>Did ya know?</didyaknowheader><br />
+
+      <didyaknowcontent
+        >A whopping 96.5 percent of water on Earth is in our oceans, covering 71
+        percent of the surface of our planet.</didyaknowcontent
+      >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="93"
+        height="78"
+        viewBox="0 0 93 78"
+        fill="none"
+      >
+        <path
+          d="M53.8226 19.2747C53.7927 16.1096 58.0496 15.0614 59.4926 17.8786L62.4608 23.6733C62.9981 24.7222 64.0996 25.3594 65.2767 25.3021L71.0325 25.022C74.3233 24.8618 75.4294 29.354 72.4404 30.7401L67.2126 33.1644C66.1435 33.6601 65.4636 34.7359 65.4748 35.9143L65.5364 42.4247C65.5663 45.5898 61.3094 46.638 59.8664 43.8208L56.8982 38.0261C56.3609 36.9772 55.2594 36.34 54.0823 36.3973L48.3265 36.6774C45.0357 36.8376 43.9296 32.3454 46.9185 30.9594L52.1464 28.5351C53.2155 28.0393 53.8954 26.9635 53.8842 25.7851L53.8226 19.2747Z"
+          fill="var(--goalsubheader)"
+        />
+        <path
+          d="M30.5501 31.3179C32.4608 28.5024 36.791 29.2067 37.711 32.4827L40.1856 41.2953C40.4664 42.295 41.1248 43.1463 42.0218 43.6693L49.5159 48.0393C52.6818 49.8854 51.9048 54.663 48.3169 55.4106L39.8242 57.1803C38.8077 57.3921 37.9134 57.9909 37.3303 58.85L32.1903 66.4241C30.2795 69.2397 25.9494 68.5354 25.0294 65.2594L22.5547 56.4467C22.274 55.4471 21.6156 54.5957 20.7186 54.0727L13.2245 49.7027C10.0585 47.8566 10.8356 43.079 14.4235 42.3314L22.9162 40.5618C23.9327 40.35 24.827 39.7512 25.4101 38.892L30.5501 31.3179Z"
+          fill="var(--primary)"
+        />
+      </svg>
+    </div>
+    <div id="goal">
+      <span id="goal1">
+        <goalheader id="1">Daily Goal</goalheader><br />
+        <goalsubheader id="1">cups per day</goalsubheader>
+        <goal id="1">8</goal>
+      </span>
+      <span id="goal2">
+        <goalheader id="2">You drank</goalheader><br />
+        <goal id="textgoal2">0</goal>
+        <goalsubheader id="2">cups today</goalsubheader>
+      </span>
+    </div>
+    <script>
+      var water = 0;
+      var meta = 2000;
+      var dailywater = 0;
+      var cups = 0;
+      function drinkcup() {
+        water += 200;
+        cups += 1;
+        document.getElementById("textgoal2").innerHTML = cups;
+        dailywater = Math.round((water / meta) * 100);
+        if (dailywater > 100) {
+          const root = document.querySelector(":root");
+          const body = document.querySelector("body");
+          root.style.setProperty("--primary", "#ffb3af");
+          root.style.setProperty("--container", "#68000e");
+          root.style.setProperty("--container-hover", "#700d1a");
+          root.style.setProperty("--track", "#442928");
+          root.style.setProperty("--goalsubheader", "#b81c36");
+          body.style.background = "#201a1a";
+        }
+      }
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
